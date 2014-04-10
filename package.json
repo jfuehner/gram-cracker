@@ -1,0 +1,23 @@
+{
+  "name": "gram-cracker",
+  "version": "0.0.1",
+  "description": "A n-gram extraction plugin...",
+  "main": "gram-cracker.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jfuehner/gram-cracker.git"
+  },
+  "author": "Jason Fuehner <jason@fuehner.com>",
+  "dependencies": {
+      "q": "*",
+      "underscore": "*"
+  },
+  "devDependencies": {
+      "assert": "*",
+      "mocha": "*",
+      "should": "*"
+  },
+  "scripts" : {
+      "test" : "_mocha ./spec"
+  }
+}

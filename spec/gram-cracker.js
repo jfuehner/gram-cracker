@@ -102,7 +102,7 @@ describe("gram-cracker", function() {
         
         it("should have 1 document and extract unigrams/bigrams", function(done) {
             var gram = new gram_cracker();
-            gram.addDocument("A huge suicide car bomb explosion on Wednesday targeted at Muna hotel in Mogadishu, killing at least 15 people while dozens wounded, witnesses said.  The car bomb went off near the hotel in Hamar-weyne district, which is the base of tens of Somali Parliamentarians and government officials. All casualties were confirmed to be civilians and MPs. A suicide car bomb exploded near Hotel Muna in Mogadishu. At least 15 people died while more than 25 others, including two members of parliament, were injured in the blast. Al Shabaab claimed responsibility for the explosion, saying it used a car to carry out the explosion. A number of government officials arrived at the scene of the explosion and confirmed that a car laden with explosive devices had exploded.")
+            gram.addDocument("The quick brown fox jumps over the lazy dog.")
                 .then(function(docs) {
                     docs.should.have.length(1);
                     
@@ -121,8 +121,8 @@ describe("gram-cracker", function() {
         it("should have 2 documents", function(done) {
             var gram = new gram_cracker();
             gram.addDocuments([
-                    "A huge suicide car bomb explosion on Wednesday targeted at Muna hotel in Mogadishu, killing at least 15 people while dozens wounded, witnesses said.",
-                    "The car bomb went off near the hotel in Hamar-weyne district, which is the base of tens of Somali Parliamentarians and government officials."
+                    "The quick brown fox jumps over the lazy dog.",
+                    "Being bounced around quickly annoyed the disheveled taxi drivers."
                 ])
                 .then(function(docs) {
                     docs.should.have.length(2);
@@ -142,8 +142,8 @@ describe("gram-cracker", function() {
         it("should have 2 documents and extract unigrams/bigrams filtering out stop words", function(done) {
             var gram = new gram_cracker();
             gram.addDocuments([
-                    "A huge suicide car bomb explosion on Wednesday targeted at Muna hotel in Mogadishu, killing at least 15 people while dozens wounded, witnesses said.",
-                    "The car bomb went off near the hotel in Hamar-weyne district, which is the base of tens of Somali Parliamentarians and government officials."
+                    "The quick brown fox jumps over the lazy dog.",
+                    "Being bounced around quickly annoyed the disheveled taxi drivers."
                 ])
                 .then(function(docs) {
                     docs.should.have.length(2);

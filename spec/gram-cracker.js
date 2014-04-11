@@ -165,7 +165,30 @@ describe("gram-cracker", function() {
                         done();
                     });                
                 });
-        });                
+        });
+        
+        it("should have expected unigrams/bigrams", function(done) {
+            var gram = new gram_cracker();
+            gram.addDocument("The quick brown fox jumps over the lazy dog.")
+                .then(function(docs) {
+                    docs.should.have.length(1);
+                    
+                    gram.extract(2, ["a", "the"]).then(function(ngrams) {
+                        should.exist(ngrams);
+                    
+                        var found = 0;
+                        _.each(["quick", "brown", "quick brown", "brown fox", "fox jumps"], function(expNGram) {
+                            if(_.chain(ngrams).pluck("tokens").contains(expNGram)) {
+                                found++;
+                            }
+                        });
+                        
+                        found.should.equal(5);
+                        
+                        done();
+                    });                
+                });
+        });                        
     });
 });
 
